@@ -1,25 +1,15 @@
----
 kind: pipeline
 type: docker
-name: default
+name: linux-amd64
 
 platform:
+  arch: amd64
   os: linux
-  arch: ppc64le
-
-clone:
-  disable: true
 
 steps:
-- name: clone
+- name: build
+  image: golang:1.10
   commands:
-  - git clone https://github.com/sumangalm-1/sample.git .
-
-- name: greeting
-  image: ubuntu:latest
-  commands:
-  - echo hello
-
-trigger:
-  branch:
-  - main
+  - cd posix
+  - tar -xf fixtures.tar -C /
+  - go test -v
