@@ -7,7 +7,8 @@ platform:
   os: linux
 
 steps:
-- name: build
-  image: alpine
+- name: greeting
+  image: ubuntu:latest
   commands:
-  - echo "Hello World"
+  - echo hello
+
