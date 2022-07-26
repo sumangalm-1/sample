@@ -3,13 +3,11 @@ type: docker
 name: linux
 
 platform:
-  arch: ppc64le
+  arch: amd64
   os: linux
 
 steps:
 - name: build
-  image: golang:1.10
+  image: alpine
   commands:
-  - cd posix
-  - tar -xf fixtures.tar -C /
-  - go test -v
+  - echo "Hello World"
